@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"os"
-	"os/signal"
 
 	"github.com/go-telegram/bot"
 	"github.com/go-telegram/bot/models"
@@ -20,14 +19,11 @@ func initBotToken() (string, error) {
 	return token, nil
 }
 
-func Start() {
+func Start(ctx context.Context) {
 	token, err := initBotToken()
 	if err != nil {
 		panic(err)
 	}
-
-	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer cancel()
 
 	opts := []bot.Option{
 		bot.WithDefaultHandler(defaultHandler),

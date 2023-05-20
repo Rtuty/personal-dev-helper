@@ -1,13 +1,15 @@
 package client
 
 import (
-	"context"
 	"dev-helper/config"
 	"fmt"
 	"log"
 	"time"
 
 	"github.com/jackc/pgconn"
+	"github.com/jackc/pgx/v4"
+	"github.com/jackc/pgx/v4/pgxpool"
+	"golang.org/x/net/context"
 )
 
 type Client interface {

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"modules/pkg/logging"
+	"dev-helper/pkg/logging"
 	"sync"
 
 	"github.com/ilyakaznacheev/cleanenv"
